@@ -15,7 +15,7 @@ namespace negocio
         {
             List<Articulo> lista = new List<Articulo>();
             //connection
-            SqlConnection conexion = new SqlConnection("Server=.\\SQLEXPRESS; Initial Catalog= CATALOGO_P3_DB; Integrated Security=true;");
+            SqlConnection conexion = new SqlConnection("Server=.\\SQLEXPRESS; Initial Catalog= PROMOS_DB; Integrated Security=true;");
             //command
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion;
@@ -48,6 +48,9 @@ namespace negocio
                 articulo.Categoria.Descripcion = (string)lector["Categoria"];
 
                 articulo.Precio = (decimal)lector["Precio"];// comentario 2
+
+                ImagenNegocio imagenNegocio = new ImagenNegocio();
+                articulo.Imagenes = imagenNegocio.ListarPorArticulo(articulo.Id);
 
                 lista.Add(articulo);
             }

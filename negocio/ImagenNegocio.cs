@@ -13,7 +13,7 @@ namespace negocio
         public List<Imagen> Listar()
         {
             List<Imagen> lista = new List<Imagen>();
-            SqlConnection conexion = new SqlConnection("Server=.\\SQLEXPRESS; Initial Catalog=CATALOGO_P3_DB; Integrated Security=true;");
+            SqlConnection conexion = new SqlConnection("Server=.\\SQLEXPRESS; Initial Catalog=PROMOS_DB; Integrated Security=true;");
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion;
             comando.CommandText =  @"
