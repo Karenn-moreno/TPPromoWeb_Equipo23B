@@ -21,7 +21,7 @@
                         <asp:Button ID="btnValidar" runat="server" Text="Validar Código" CssClass="btn btn-primary btn-lg" OnClick="btnValidar_Click" />
                     </div>
 
-                    <asp:Label ID="lblMensaje" runat="server" CssClass="mt-3 text-center" EnableViewState="false" />
+                   <asp:Label ID="lblMensaje" runat="server" CssClass="fw-bold"></asp:Label>
                 </div>
             </div>
         </div>

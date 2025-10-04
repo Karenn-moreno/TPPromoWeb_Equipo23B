@@ -42,7 +42,7 @@ namespace PromoWeb
                     // Código válido: guardamos en Session y redirigimos
                     Session["CodigoVoucher"] = codigo;
                     // Response.Redirect(..., false) para evitar un Response.End() inmediato
-                    Response.Redirect("FormularioCliente.aspx", false);
+                    Response.Redirect("FormularioCliente.aspx", false); 
                 }
                 else
                 {
