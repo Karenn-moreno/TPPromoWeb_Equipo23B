@@ -23,7 +23,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Server=.\\SQLEXPRESS; Initial Catalog=PROMOS_DB; Integrated Security=true;");
+            conexion = new SqlConnection("Server=(local)\\SQLEXPRESS; Initial Catalog=PROMOS_DB; Integrated Security=true;");
             comando = new SqlCommand();
         }
 
