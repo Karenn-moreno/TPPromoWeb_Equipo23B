@@ -26,6 +26,7 @@ namespace PromoWeb
             if (string.IsNullOrWhiteSpace(txtDocumento.Text) ||
                 string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text) ||
                 string.IsNullOrWhiteSpace(txtCiudad.Text) ||
                 string.IsNullOrWhiteSpace(txtCodPostal.Text))
@@ -70,6 +71,7 @@ namespace PromoWeb
                 Documento = txtDocumento.Text,
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,
+                Email = txtEmail.Text,
                 Direccion = txtDireccion.Text,
                 Ciudad = txtCiudad.Text,
                 CP = codPostal

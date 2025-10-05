@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-     <h1 class="text-center mt-2">Ingresa tus datos</h1>
+    <h1 class="text-center mt-2">Ingresa tus datos</h1>
 
     <div class="container mt-3" style="max-width: 1000px;">
         <div class="row g-3">
@@ -30,6 +30,18 @@
                     <asp:TextBox runat="server" ID="txtApellido" CssClass="form-control" placeholder="Apellido" />
                     <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido"
                         ErrorMessage="Campo obligatorio." CssClass="text-danger" Display="Dynamic" />
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+                <div class="col-md-6">
+                    <label for="txtEmail" class="form-label">Email</label>
+                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="correo@ejemplo.com" />
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
+                        ErrorMessage="Campo obligatorio." CssClass="text-danger" Display="Dynamic" />
+                    <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail"
+                        ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                        ErrorMessage="Formato de email inválido." CssClass="text-danger" Display="Dynamic" />
                 </div>
             </div>
 
