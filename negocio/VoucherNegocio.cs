@@ -34,5 +34,30 @@ namespace negocio
             }
         }
 
+        public void CanjearVoucher(string codigoVoucher, int idArticulo, int idCliente)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta(@"
+            UPDATE VOUCHERS 
+            SET FechaCanje = GETDATE(), 
+                IdArticulo = @IdArticulo, 
+                IdCliente = @IdCliente
+            WHERE CodigoVoucher = @CodigoVoucher AND FechaCanje IS NULL
+        ");
+
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.setearParametro("@IdCliente", idCliente);
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
+
+                datos.ejecutarAccionInt(); // Ejecuta el UPDATE
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al canjear el voucher.", ex);
+            }
+        }
+
     }
 }
