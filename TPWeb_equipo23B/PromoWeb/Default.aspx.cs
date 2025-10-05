@@ -42,7 +42,21 @@ namespace PromoWeb
                     // Código válido: guardamos en Session y redirigimos
                     Session["CodigoVoucher"] = codigo;
                     // Response.Redirect(..., false) para evitar un Response.End() inmediato
-                    Response.Redirect("FormularioCliente.aspx", false); 
+                    //Response.Redirect("verArticulo.aspx", false); //
+                    // ---- Reemplazamos Response.Redirect por este bloque ----
+                    var scriptManager = ScriptManager.GetCurrent(this.Page);
+                    if (scriptManager != null && scriptManager.IsInAsyncPostBack)
+                    {
+                        // Redirige vía JavaScript si estamos en un UpdatePanel
+                        ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(),
+                            "RedirectToVerArticulo", "window.location.href='verArticulo.aspx';", true);
+                    }
+                    else
+                    {
+                        // Redirección normal del lado servidor
+                        Response.Redirect("verArticulo.aspx", false);
+                        Context.ApplicationInstance.CompleteRequest();
+                    }
                 }
                 else
                 {

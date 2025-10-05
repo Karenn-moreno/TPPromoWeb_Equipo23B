@@ -2,13 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"> <!--Contenido no visible (Links, Scripts, Tags) -->
    
+
     <link href="Content/estilos.css" rel="stylesheet" />
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> <!--Contenido visible del body (Diseño General)-->
    
-    <h2>ELIGE TU PREMIO!!! </h2>
+
+    <h2 class="titulo-premio">¡Elige tu premio! </h2>
     <div class="imagenes-articulos">
         <asp:Repeater ID="rptArticulos" runat="server" OnItemCommand="rptArticulos_ItemCommand">
             <ItemTemplate>
@@ -30,6 +32,9 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
+                        <p class="descripcion-articulo mb-3 descripcion-articulo">
+                            <%# Eval("Descripcion") %>
+                        </p>
                         <!-- boton para elegir el premio -->
                         <asp:Button ID="btnElegirPremio" runat="server"
                             Text="Elegir premio"
