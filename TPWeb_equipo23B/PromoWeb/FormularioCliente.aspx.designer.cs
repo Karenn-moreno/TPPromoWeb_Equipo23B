@@ -15,22 +15,22 @@ namespace PromoWeb
     {
 
         /// <summary>
-        /// Control txtDni.
+        /// Control txtDocumento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDni;
+        protected global::System.Web.UI.WebControls.TextBox txtDocumento;
 
         /// <summary>
-        /// Control rfvDni.
+        /// Control rfvDocumento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDni;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDocumento;
 
         /// <summary>
         /// Control txtNombre.

@@ -42,5 +42,21 @@ namespace negocio
             
         }
 
+        public bool ExisteDocumento(string documento)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM CLIENTES WHERE Documento = @Documento");
+                datos.setearParametro("@Documento", documento);
+                int cantidad = (int)datos.ejecutarAccionInt(); 
+                return cantidad > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al verificar documento", ex);
+            }
+        }
+
     }
 }
