@@ -57,6 +57,29 @@ namespace negocio
                 throw new Exception("Error al verificar documento", ex);
             }
         }
+        public int ObtenerIdPorDocumento(string documento)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Id FROM CLIENTES WHERE Documento = @Documento");
+                datos.setearParametro("@Documento", documento);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                    return (int)datos.Lector["Id"];
+                else
+                    throw new Exception("Cliente no encontrado.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el ID del cliente.", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

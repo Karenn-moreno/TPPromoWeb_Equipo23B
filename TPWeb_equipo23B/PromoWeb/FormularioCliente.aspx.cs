@@ -104,6 +104,24 @@ namespace PromoWeb
 
             //Guardar en base de datos
             clienteNeg.Guardar(a);
+            // 🔹 Si hay un voucher en la sesión, lo canjeamos
+            if (Session["CodigoVoucher"] != null)
+            {
+                string codigoVoucher = Session["CodigoVoucher"].ToString();
+
+                // 🔹 Recuperar el ID del cliente recién guardado
+                int idCliente = clienteNeg.ObtenerIdPorDocumento(a.Documento);
+
+                // 🔹 Suponiendo que el artículo se elige en otra parte o es fijo
+                int idArticulo = 1; // podés reemplazarlo si tenés una selección dinámica
+
+                // 🔹 Marcar el voucher como usado
+                VoucherNegocio voucherNeg = new VoucherNegocio();
+                voucherNeg.CanjearVoucher(codigoVoucher, idArticulo, idCliente);
+
+                // 🔹 Limpiar la sesión
+                Session.Remove("CodigoVoucher");
+            }
 
             //Mensaje 
             Response.Redirect("Exito.aspx");
@@ -117,6 +135,7 @@ namespace PromoWeb
             txtCodPostal.Text = "";
             chkAcepto.Checked = false;
         }
+
     }
 }
 
