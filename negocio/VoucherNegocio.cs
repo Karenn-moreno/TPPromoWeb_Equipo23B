@@ -9,14 +9,14 @@ namespace negocio
     public class VoucherNegocio
     {
 
-        // Método para validar el código de voucher.
+        // Método para validar el código de voucher
 
         public bool ValidarCodigo(string codigo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                //En la consulta buscamos que el codigo sea valido y que no se haya utilizado con el null
+                
                 datos.setearConsulta("SELECT CodigoVoucher FROM VOUCHERS WHERE CodigoVoucher = @codigo AND FechaCanje IS NULL");
                 datos.setearParametro("@codigo", codigo);
                 datos.ejecutarLectura();
