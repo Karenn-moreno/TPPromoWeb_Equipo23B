@@ -112,10 +112,16 @@ namespace PromoWeb
                 //Recuperar el ID del cliente recién guardado
                 int idCliente = clienteNeg.ObtenerIdPorDocumento(a.Documento);
 
-                
-                int idArticulo = 1; 
 
-                
+                /* int idArticulo = 1; */
+
+                int idArticulo = 0;
+                if (Session["PremioSeleccionado"] != null)
+                {
+                    idArticulo = (int)Session["PremioSeleccionado"];
+                }
+
+
                 VoucherNegocio voucherNeg = new VoucherNegocio();
                 voucherNeg.CanjearVoucher(codigoVoucher, idArticulo, idCliente);
 
