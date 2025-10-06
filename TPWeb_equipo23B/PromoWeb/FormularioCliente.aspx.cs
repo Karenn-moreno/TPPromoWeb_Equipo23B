@@ -35,6 +35,7 @@ namespace PromoWeb
                 return;
             }
 
+
             // Validar Documento solo numeros
             long dniNumero;
             if (!long.TryParse(txtDocumento.Text, out dniNumero))
@@ -42,11 +43,35 @@ namespace PromoWeb
                 lblError.Text = "El Documento debe contener solo números.";
                 return;
             }
+            if (dniNumero <= 0)
+            {
+                lblError.Text = "El Documento no puede ser un número negativo.";
+                return;
+            }
+
+            //validar que Nombre solo  letras y espacios
+            if (!txtNombre.Text.Replace(" ", "").All(char.IsLetter))
+            {
+                lblError.Text = "El Nombre solo puede contener letras.";
+                return;
+            }
+
+            //validar que Apellido solo letras y espacios
+            if (!txtApellido.Text.Replace(" ", "").All(char.IsLetter))
+            {
+                lblError.Text = "El Apellido solo puede contener letras.";
+                return;
+            }
 
             int codPostal;
             if (!int.TryParse(txtCodPostal.Text, out codPostal))
             {
                 lblError.Text = "Código postal inválido.";
+                return;
+            }
+            if (codPostal <= 0)
+            {
+                lblError.Text = "El Código Postal no puede ser negativo ni cero.";
                 return;
             }
 
@@ -81,8 +106,7 @@ namespace PromoWeb
             clienteNeg.Guardar(a);
 
             //Mensaje 
-            lblError.CssClass = "text-success mt-2 d-block";
-            lblError.Text = "Cliente registrado correctamente.";
+            Response.Redirect("Exito.aspx");
 
             //limpiar
             txtDocumento.Text = "";

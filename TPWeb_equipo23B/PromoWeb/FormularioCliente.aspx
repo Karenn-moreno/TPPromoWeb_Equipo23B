@@ -79,7 +79,7 @@
 
         <div class="row mt-3">
             <div class="col-auto">
-                <asp:Button ID="btnRegistrar" OnClick="btnRegistrar_Click" runat="server" Text="Registrarme" CssClass="btn btn-dark" />
+                <asp:Button ID="btnRegistrar" OnClick="btnRegistrar_Click" runat="server" Text="Participar!" CssClass="btn btn-dark" />
             </div>
             <div class="col-auto">
                 <a href="Default.aspx" class="btn btn-secondary">Cancelar</a>
